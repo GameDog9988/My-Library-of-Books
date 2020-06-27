@@ -1,5 +1,11 @@
 const container = document.querySelector(".container");
+const newBookBtn = document.querySelector(".new-book-btn");
+const newBookForm = document.querySelector(".new-book-form");
 let myLibrary = [];
+
+newBookBtn.addEventListener("click", function () {
+  newBookForm.style.display = "block";
+});
 
 function Book(title, author, pages, read, color) {
   this.title = title;
@@ -37,5 +43,3 @@ const heartOfDarkness = new Book(
 
 addBookToLibrary(heartOfDarkness);
 render(myLibrary);
-
-heartOfDarkness.sayTitle();
