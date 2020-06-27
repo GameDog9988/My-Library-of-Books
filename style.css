@@ -8,6 +8,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 }
 
 h1 {
@@ -29,9 +30,10 @@ h1 {
     0 100px 80px rgba(0, 0, 0, 0.07);
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
   gap: 50px;
   place-items: center;
+  transition: ease-in-out 0.3s;
 }
 
 .card {
@@ -73,6 +75,18 @@ h1 {
   width: 100px;
 }
 
+.undo-book-btn {
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  background-color: lightsalmon;
+  width: 150px;
+  display: none;
+}
+
 button:hover {
   opacity: 0.9;
   cursor: pointer;
@@ -87,6 +101,7 @@ form {
   border: 1px solid #ccc;
   border-radius: 1em;
   display: none;
+  transition: ease-in-out 0.3s;
 }
 
 ul {
