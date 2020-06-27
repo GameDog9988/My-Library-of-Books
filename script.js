@@ -81,6 +81,7 @@ bookSubmitBtn.addEventListener("click", function () {
     pagesValue = "";
     readInputValue = "";
     colorValue = "";
+    console.log(myLibrary);
   }
 });
 
