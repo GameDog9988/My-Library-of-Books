@@ -2,6 +2,7 @@ const container = document.querySelector(".container");
 const newBookBtn = document.querySelector(".new-book-btn");
 const undoBookBtn = document.querySelector(".undo-book-btn");
 const newBookForm = document.querySelector(".new-book-form");
+const bookSubmitBtn = document.querySelector("#bookSubmit");
 const titleInput = document.querySelector("#titleInput");
 const authorInput = document.querySelector("#authorInput");
 const pagesInput = document.querySelector("#pagesInput");
@@ -21,6 +22,30 @@ undoBookBtn.addEventListener("click", function () {
   newBookBtn.style.display = "block";
 });
 
+bookSubmitBtn.addEventListener("click", function () {
+  if (
+    titleInput.value == "" ||
+    authorInput.value == "" ||
+    pagesInput.value == "" ||
+    readInput.value == "" ||
+    colorInput.value == ""
+  ) {
+    alert("All fields of form must be filled out");
+    return false;
+  } else {
+    addBookToLibrary(
+      titleInput.value,
+      authorInput.value,
+      pagesInput.value,
+      readInput.value,
+      colorInput.value
+    );
+    newBookForm.style.display = "none";
+    undoBookBtn.style.display = "none";
+    newBookBtn.style.display = "block";
+  }
+});
+
 function Book(title, author, pages, read, color) {
   this.title = title;
   this.author = author;
@@ -33,11 +58,12 @@ Book.prototype.sayTitle = function () {
   console.log(this.title);
 };
 
-function addBookToLibrary(newBook) {
-  myLibrary.push(newBook);
+function addBookToLibrary(title, author, pages, read, color) {
+  myLibrary.push(new Book(title, author, pages, read, color));
+  render();
 }
 
-function render(myLibrary) {
+function render() {
   myLibrary.forEach((element) => {
     let card = document.createElement("div");
     card.setAttribute("class", "card");
@@ -47,13 +73,12 @@ function render(myLibrary) {
   });
 }
 
-const heartOfDarkness = new Book(
-  "Heart Of Darkness",
+addBookToLibrary(
+  "Heart of Darkness",
   "Joseph Conrad",
-  "91",
+  "91 pages",
   "I have read",
   "teal"
 );
 
-addBookToLibrary(heartOfDarkness);
-render(myLibrary);
+render();
