@@ -78,6 +78,7 @@ h1 {
   font-family: "Poppins", sans-serif;
   background-color: wheat;
   width: 100px;
+  font-weight: bold;
 }
 
 .undo-book-btn {
@@ -90,6 +91,7 @@ h1 {
   background-color: lightsalmon;
   width: 150px;
   display: none;
+  font-weight: bold;
 }
 
 button:hover {
@@ -100,7 +102,7 @@ button:hover {
 form {
   /* Center the form on the page */
   margin: 0 auto;
-  width: 400px;
+  width: 500px;
   /* Form outline */
   padding: 1em;
   border: 1px solid #ccc;
@@ -122,7 +124,7 @@ form li + li {
 label {
   /* Uniform size & alignment */
   display: inline-block;
-  width: 90px;
+  width: 120px;
   text-align: right;
 }
 
@@ -133,7 +135,7 @@ textarea {
   font: 1em sans-serif;
 
   /* Uniform text field size */
-  width: 300px;
+  width: 350px;
   box-sizing: border-box;
 
   /* Match form field borders */
@@ -144,4 +146,14 @@ input:focus,
 textarea:focus {
   /* Additional highlight for focused elements */
   border-color: #000;
+}
+
+#bookSubmit {
+  background-color: wheat;
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  padding: 1rem;
 }
