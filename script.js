@@ -85,12 +85,6 @@ bookSubmitBtn.addEventListener("click", function () {
   }
 });
 
-addBookToLibrary(
-  "Heart of Darkness",
-  "Joseph Conrad",
-  "91",
-  "I have read",
-  "teal"
-);
+addBookToLibrary("Heart of Darkness", "Joseph Conrad", "91", "read", "teal");
 
 render();

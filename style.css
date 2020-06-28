@@ -16,6 +16,7 @@ h1 {
   font-size: 2rem;
   margin: 1rem;
   font-weight: bold;
+  letter-spacing: 2px;
 }
 
 .container {
@@ -124,8 +125,9 @@ form li + li {
 label {
   /* Uniform size & alignment */
   display: inline-block;
-  width: 120px;
+  width: 130px;
   text-align: right;
+  letter-spacing: 1px;
 }
 
 input,
@@ -140,6 +142,8 @@ textarea {
 
   /* Match form field borders */
   border: 1px solid #999;
+  border-radius: 5px;
+  padding: 0.5rem;
 }
 
 input:focus,
