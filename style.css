@@ -106,7 +106,7 @@ h1 {
   position: absolute;
   opacity: 0;
   top: 28px;
-  left: -50px;
+  right: 60px;
   transition: opacity 0.3s ease;
 }
 
