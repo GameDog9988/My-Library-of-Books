@@ -56,7 +56,7 @@ h1 {
     0 100px 80px rgba(0, 0, 0, 0.07);
 }
 
-.card::after {
+.card::before {
   content: "";
   position: absolute;
   left: -6px;
@@ -68,6 +68,27 @@ h1 {
 
 .card:hover {
   transform: scale(1.05);
+}
+
+.card:hover .card-btn {
+  opacity: 1;
+}
+
+.card-btn {
+  position: absolute;
+  text-align: center;
+  top: 200px;
+  margin-left: -50px;
+  left: 50%;
+  padding: 0.5rem;
+  width: 100px;
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  background-color: lightcoral;
+  border: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .new-book-btn {
@@ -89,7 +110,7 @@ h1 {
   border: none;
   outline: none;
   font-family: "Poppins", sans-serif;
-  background-color: lightsalmon;
+  background-color: lightcoral;
   width: 150px;
   display: none;
   font-weight: bold;

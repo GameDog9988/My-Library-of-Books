@@ -3,6 +3,7 @@ const newBookBtn = document.querySelector(".new-book-btn");
 const undoBookBtn = document.querySelector(".undo-book-btn");
 const newBookForm = document.querySelector(".new-book-form");
 const bookSubmitBtn = document.querySelector("#bookSubmit");
+const bookCards = document.querySelectorAll(".card");
 let myLibrary = [];
 
 function Book(title, author, pages, read, color) {
@@ -26,10 +27,14 @@ function render() {
   container.innerHTML = "";
   myLibrary.forEach((book) => {
     let card = document.createElement("div");
+    let cardBtn = document.createElement("button");
     card.setAttribute("class", "card");
+    cardBtn.setAttribute("class", "card-btn");
     card.textContent = `${book.title}`;
+    cardBtn.textContent = "Remove";
     card.setAttribute("style", `background-color: ${book.color}`);
     container.appendChild(card);
+    card.appendChild(cardBtn);
   });
 }
 
