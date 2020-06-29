@@ -12,6 +12,7 @@ function Book(title, author, pages, read, color) {
   this.pages = pages;
   this.read = read;
   this.color = color;
+  this.index = myLibrary.length;
 }
 
 Book.prototype.sayTitle = function () {
@@ -32,6 +33,11 @@ function render() {
     cardBtn.setAttribute("class", "card-btn");
     card.textContent = `${book.title}`;
     cardBtn.textContent = "Remove";
+    cardBtn.value = `${book.index}`;
+    cardBtn.addEventListener("click", function () {
+      myLibrary.splice(this.value, 1);
+      render();
+    });
     card.setAttribute("style", `background-color: ${book.color}`);
     container.appendChild(card);
     card.appendChild(cardBtn);
