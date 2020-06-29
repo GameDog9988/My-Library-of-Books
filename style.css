@@ -17,6 +17,7 @@ h1 {
   margin: 1rem;
   font-weight: bold;
   letter-spacing: 2px;
+  font-family: "Libre Baskerville", serif;
 }
 
 .container {
@@ -49,6 +50,7 @@ h1 {
   border-radius: 5px;
   text-align: center;
   font-size: 1.2rem;
+  font-family: "Libre Baskerville", serif;
   transition: ease-in-out 0.3s;
   box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.02),
     0 6.7px 5.3px rgba(0, 0, 0, 0.028), 0 12.5px 10px rgba(0, 0, 0, 0.035),
@@ -70,11 +72,17 @@ h1 {
   transform: scale(1.05);
 }
 
-.card:hover .card-btn {
+.card:hover .remove-btn {
+  opacity: 1;
+}
+.card:hover .read-label {
+  opacity: 1;
+}
+.card:hover .read-checkbox {
   opacity: 1;
 }
 
-.card-btn {
+.remove-btn {
   position: absolute;
   text-align: center;
   top: 200px;
@@ -88,6 +96,25 @@ h1 {
   background-color: lightcoral;
   border: none;
   opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.read-checkbox {
+  position: absolute;
+  opacity: 0;
+  top: 23px;
+  left: -35px;
+  transition: opacity 0.3s ease;
+}
+
+.read-label {
+  position: absolute;
+  opacity: 0;
+  top: 25px;
+  left: 75px;
+  font-size: 0.9rem;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 1px;
   transition: opacity 0.3s ease;
 }
 
@@ -143,7 +170,7 @@ form li + li {
   margin-top: 1em;
 }
 
-label {
+ul label {
   /* Uniform size & alignment */
   display: inline-block;
   width: 130px;

@@ -28,19 +28,37 @@ function render() {
   container.innerHTML = "";
   myLibrary.forEach((book) => {
     let card = document.createElement("div");
-    let cardBtn = document.createElement("button");
+    let removeBtn = document.createElement("button");
+    let readLabel = document.createElement("label");
+    let readCheckbox = document.createElement("input");
     card.setAttribute("class", "card");
-    cardBtn.setAttribute("class", "card-btn");
+    removeBtn.setAttribute("class", "remove-btn");
+    readLabel.setAttribute("class", "read-label");
+    readLabel.setAttribute("for", "readCheckbox");
+    readCheckbox.setAttribute("class", "read-checkbox");
+    readCheckbox.setAttribute("type", "checkbox");
+    readCheckbox.checked = book.read;
+    readCheckbox.addEventListener("click", function () {
+      if (readCheckbox.checked == true) {
+        readCheckbox.checked == false;
+      } else {
+        readCheckbox.checked == true;
+      }
+      render();
+    });
     card.textContent = `${book.title}`;
-    cardBtn.textContent = "Remove";
-    cardBtn.value = `${book.index}`;
-    cardBtn.addEventListener("click", function () {
+    readLabel.textContent = "Read:";
+    removeBtn.textContent = "Remove";
+    removeBtn.value = `${book.index}`;
+    removeBtn.addEventListener("click", function () {
       myLibrary.splice(this.value, 1);
       render();
     });
     card.setAttribute("style", `background-color: ${book.color}`);
     container.appendChild(card);
-    card.appendChild(cardBtn);
+    card.appendChild(removeBtn);
+    card.appendChild(readLabel);
+    card.appendChild(readCheckbox);
   });
 }
 
@@ -66,13 +84,12 @@ bookSubmitBtn.addEventListener("click", function () {
   let titleValue = document.querySelector("#titleInput").value;
   let authorValue = document.querySelector("#authorInput").value;
   let pagesValue = document.querySelector("#pagesInput").value;
-  let readValue = document.querySelector("#readInput").value;
+  let readValue = document.querySelector("#readInput").checked;
   let colorValue = document.querySelector("#colorInput").value;
   if (
     titleValue == "" ||
     authorValue == "" ||
     pagesValue == "" ||
-    readValue == "" ||
     colorValue == ""
   ) {
     alert("All fields of form must be filled out");
@@ -96,6 +113,6 @@ bookSubmitBtn.addEventListener("click", function () {
   }
 });
 
-addBookToLibrary("Heart of Darkness", "Joseph Conrad", "91", "read", "teal");
+addBookToLibrary("Heart of Darkness", "Joseph Conrad", "91", "true", "teal");
 
 render();
