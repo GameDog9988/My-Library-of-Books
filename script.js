@@ -39,12 +39,15 @@ function render() {
     readCheckbox.setAttribute("type", "checkbox");
     readCheckbox.checked = book.read;
     readCheckbox.addEventListener("click", function () {
-      if (readCheckbox.checked == true) {
-        readCheckbox.checked == false;
+      if (readCheckbox.checked) {
+        book.read = true;
+        console.log(`${book.index} position book checked`);
+        console.log(`${book.read}`);
       } else {
-        readCheckbox.checked == true;
+        book.read = false;
+        console.log(`${book.index} position book unchecked`);
+        console.log(`${book.read}`);
       }
-      render();
     });
     card.textContent = `${book.title}`;
     readLabel.textContent = "Read:";
