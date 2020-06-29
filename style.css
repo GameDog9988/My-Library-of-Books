@@ -47,6 +47,9 @@ h1 {
   background-color: wheat;
   width: 200px;
   height: 250px;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  line-height: 1.5rem;
   border-radius: 5px;
   text-align: center;
   font-size: 1.2rem;
@@ -102,8 +105,8 @@ h1 {
 .read-checkbox {
   position: absolute;
   opacity: 0;
-  top: 23px;
-  left: -35px;
+  top: 28px;
+  left: -50px;
   transition: opacity 0.3s ease;
 }
 

@@ -114,5 +114,14 @@ bookSubmitBtn.addEventListener("click", function () {
 });
 
 addBookToLibrary("Heart of Darkness", "Joseph Conrad", "91", "true", "teal");
+addBookToLibrary("World War Z", "Max Brooks", "342", "true", "orange");
+addBookToLibrary("Hamlet", "William Shakespeare", "166", "true", "crimson");
+addBookToLibrary(
+  "Do Androids Dream of Electric Sheep",
+  "Philip K. Dick",
+  "210",
+  "true",
+  "mediumslateblue"
+);
 
 render();
