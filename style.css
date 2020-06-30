@@ -14,7 +14,8 @@ header {
 h1 {
   text-align: center;
   font-size: 2rem;
-  margin: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
   font-weight: bold;
   letter-spacing: 2px;
   font-family: "Libre Baskerville", serif;
@@ -214,8 +215,8 @@ textarea:focus {
   }
 
   .container {
-    padding: 1rem;
-    margin: 0 auto;
+    padding: 2rem 1rem;
+    margin-bottom: 4rem;
     text-align: center;
   }
 
@@ -233,6 +234,29 @@ textarea:focus {
     background-color: black;
     width: 8px;
     height: 200px;
+  }
+
+  .remove-btn {
+    top: 150px;
+    margin-left: -40px;
+    left: 50%;
+    width: 80px;
+  }
+
+  .read-checkbox {
+    top: 27px;
+    right: 35px;
+  }
+
+  .read-label {
+    position: absolute;
+    opacity: 0;
+    top: 25px;
+    left: 50px;
+    font-size: 0.8rem;
+    font-family: "Poppins", sans-serif;
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease;
   }
 
   form {

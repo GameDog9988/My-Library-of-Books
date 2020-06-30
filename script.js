@@ -40,11 +40,11 @@ function render() {
     readCheckbox.checked = book.read;
     readCheckbox.addEventListener("click", function () {
       if (readCheckbox.checked) {
-        book.read = true;
+        this.read = true;
         console.log(`${book.index} position book checked`);
         console.log(`${book.read}`);
       } else {
-        book.read = false;
+        this.read = false;
         console.log(`${book.index} position book unchecked`);
         console.log(`${book.read}`);
       }
