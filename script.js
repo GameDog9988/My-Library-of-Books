@@ -6,18 +6,20 @@ const bookSubmitBtn = document.querySelector("#bookSubmit");
 const bookCards = document.querySelectorAll(".card");
 let myLibrary = [];
 
-function Book(title, author, pages, read, color) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.color = color;
-  this.index = myLibrary.length;
-}
+class Book {
+  constructor(title, author, pages, read, color) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.color = color;
+    this.index = myLibrary.length;
+  }
 
-Book.prototype.sayTitle = function () {
-  console.log(this.title);
-};
+  sayTitle() {
+    console.log(`Title: ${this.title}`);
+  }
+}
 
 function addBookToLibrary(title, author, pages, read, color) {
   myLibrary.push(new Book(title, author, pages, read, color));
