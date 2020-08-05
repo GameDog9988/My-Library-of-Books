@@ -18,21 +18,21 @@
       <h1>Alexander's Library</h1>
       <button class="new-book-btn">New book</button>
       <button class="undo-book-btn">Undo new book</button>
-      <form method="POST" class="new-book-form">
+      <form method="POST" class="new-book-form" novalidate>
         <ul>
           <li>
             <label for="title">Title:</label>
-            <input type="text" id="titleInput" />
+            <input type="text" id="titleInput" minlength="3" maxlength="50" />
           </li>
 
           <li>
             <label for="authorInput">Author:</label>
-            <input type="text" id="authorInput" />
+            <input type="text" id="authorInput" minlength="3" maxlength="50" />
           </li>
 
           <li>
             <label for="pagesInput"># of pages:</label>
-            <input type="text" id="pagesInput" />
+            <input type="number" id="pagesInput" min="1" max="2000"/>
           </li>
           <li>
             <label for="colorInput">Color of cover:</label>
