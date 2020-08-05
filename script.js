@@ -86,25 +86,33 @@ function handleForm(event) {
 newBookForm.addEventListener("submit", handleForm);
 
 bookSubmitBtn.addEventListener("click", function () {
-  let titleValue = document.querySelector("#titleInput").value;
-  let authorValue = document.querySelector("#authorInput").value;
-  let pagesValue = document.querySelector("#pagesInput").value;
-  let readValue = document.querySelector("#readInput").checked;
-  let colorValue = document.querySelector("#colorInput").value;
+  let title = document.querySelector("#titleInput");
+  let author = document.querySelector("#authorInput");
+  let pages = document.querySelector("#pagesInput");
+  let read = document.querySelector("#readInput");
+  let color = document.querySelector("#colorInput");
   if (
-    titleValue == "" ||
-    authorValue == "" ||
-    pagesValue == "" ||
-    colorValue == ""
+    title.value == "" ||
+    author.value == "" ||
+    pages.value == "" ||
+    color.value == ""
   ) {
     alert("All fields of form must be filled out");
+  } else if (
+    !title.validity.valid ||
+    !author.validity.valid ||
+    !pages.validity.valid ||
+    !read.validity.valid ||
+    !color.validity.valid
+  ) {
+    alert("One of your form inputs is not valid");
   } else {
     addBookToLibrary(
-      titleValue,
-      authorValue,
-      pagesValue,
-      readValue,
-      colorValue
+      title.value,
+      author.value,
+      pages.value,
+      read.checked,
+      color.value
     );
     newBookForm.style.display = "none";
     undoBookBtn.style.display = "none";

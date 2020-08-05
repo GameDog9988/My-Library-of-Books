@@ -195,6 +195,11 @@ textarea:focus {
   border-color: #000;
 }
 
+input:invalid {
+  border-color: #900;
+  background-color: #fdd;
+}
+
 #bookSubmit {
   background-color: wheat;
   font-family: "Poppins", sans-serif;
