@@ -13,7 +13,6 @@ class Book {
     this.pages = pages;
     this.read = read;
     this.color = color;
-    this.index = myLibrary.length;
   }
 
   sayTitle() {
@@ -22,18 +21,31 @@ class Book {
 }
 
 function addBookToLibrary(title, author, pages, read, color) {
-  myLibrary.push(new Book(title, author, pages, read, color));
+  let book = new Book(title, author, pages, read, color);
+  myLibrary.push(book);
   render();
 }
 
+if (localStorage.getItem("loadedBefore") === null) {
+  localStorage.setItem("books", JSON.stringify(myLibrary));
+  firstLoad();
+  localStorage.setItem("loadedBefore", true);
+}
+
+if (localStorage.getItem("books") !== null)
+  myLibrary = JSON.parse(localStorage.getItem("books"));
+else localStorage.setItem("books", JSON.stringify(myLibrary));
+
 function render() {
+  localStorage.setItem("books", JSON.stringify(myLibrary));
   container.innerHTML = "";
-  myLibrary.forEach((book) => {
+  myLibrary.forEach((book, index) => {
     let card = document.createElement("div");
     let removeBtn = document.createElement("button");
     let readLabel = document.createElement("label");
     let readCheckbox = document.createElement("input");
     card.setAttribute("class", "card");
+    card.id = index;
     removeBtn.setAttribute("class", "remove-btn");
     readLabel.setAttribute("class", "read-label");
     readLabel.setAttribute("for", "readCheckbox");
@@ -45,18 +57,19 @@ function render() {
         this.read = true;
         console.log(`${book.index} position book checked`);
         console.log(`${book.read}`);
+        localStorage.setItem("books", JSON.stringify(myLibrary));
       } else {
         this.read = false;
         console.log(`${book.index} position book unchecked`);
         console.log(`${book.read}`);
+        localStorage.setItem("books", JSON.stringify(myLibrary));
       }
     });
     card.textContent = `${book.title}`;
     readLabel.textContent = "Read:";
     removeBtn.textContent = "Remove";
-    removeBtn.value = `${book.index}`;
     removeBtn.addEventListener("click", function () {
-      myLibrary.splice(this.value, 1);
+      myLibrary.splice(index, 1);
       render();
     });
     card.setAttribute("style", `background-color: ${book.color}`);
@@ -117,24 +130,26 @@ bookSubmitBtn.addEventListener("click", function () {
     newBookForm.style.display = "none";
     undoBookBtn.style.display = "none";
     newBookBtn.style.display = "block";
-    titleValue = "";
-    authorValue = "";
-    pagesValue = "";
-    readInputValue = "";
-    colorValue = "";
+    title.value = "";
+    author.value = "";
+    pages.value = "";
+    read.checked = "";
+    color.value = "";
     console.log(myLibrary);
   }
 });
 
-addBookToLibrary("Heart of Darkness", "Joseph Conrad", "91", "true", "teal");
-addBookToLibrary("World War Z", "Max Brooks", "342", "true", "orange");
-addBookToLibrary("Hamlet", "William Shakespeare", "166", "true", "crimson");
-addBookToLibrary(
-  "Do Androids Dream of Electric Sheep",
-  "Philip K. Dick",
-  "210",
-  "true",
-  "mediumslateblue"
-);
-
 render();
+
+function firstLoad() {
+  addBookToLibrary("Heart of Darkness", "Joseph Conrad", "91", "true", "teal");
+  addBookToLibrary("World War Z", "Max Brooks", "342", "true", "orange");
+  addBookToLibrary("Hamlet", "William Shakespeare", "166", "true", "crimson");
+  addBookToLibrary(
+    "Do Androids Dream of Electric Sheep",
+    "Philip K. Dick",
+    "210",
+    "true",
+    "mediumslateblue"
+  );
+}
